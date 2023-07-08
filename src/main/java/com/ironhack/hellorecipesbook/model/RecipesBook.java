@@ -28,7 +28,7 @@ public class RecipesBook {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipesBook")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipesBook", fetch = FetchType.EAGER)
     private List<Recipe> recipes = new ArrayList<>();
 
     public RecipesBook(String name) {

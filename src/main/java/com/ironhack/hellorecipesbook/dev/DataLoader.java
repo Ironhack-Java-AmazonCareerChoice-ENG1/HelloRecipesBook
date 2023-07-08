@@ -18,8 +18,8 @@ public class DataLoader implements ApplicationListener<ApplicationReadyEvent> {
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
         initDatabase();
-//        recipesBookService.findAll().forEach(System.out::println);
-        recipesBookService.printAllRecipesBooks();
+        recipesBookService.findAll().forEach(System.out::println);
+//        recipesBookService.printAllRecipesBooks();
     }
 
     private void initDatabase() {
@@ -31,7 +31,7 @@ public class DataLoader implements ApplicationListener<ApplicationReadyEvent> {
 
         // add 4 recipes to each book
         for (int i = 1; i <= 4; i++) {
-            recipesBookService.addRecipeToRecipesBook(book1.getId(), new Recipe("Recipe " + faker.dessert()));
+            recipesBookService.addRecipeToRecipesBook(book1.getId(), new Recipe("Recipe " + faker.dessert().variety()));
             recipesBookService.addRecipeToRecipesBook(book2.getId(), new Recipe("Recipe " + faker.food().fruit()));
             recipesBookService.addRecipeToRecipesBook(book3.getId(), new Recipe("Recipe" + faker.food().dish() ));
         }
